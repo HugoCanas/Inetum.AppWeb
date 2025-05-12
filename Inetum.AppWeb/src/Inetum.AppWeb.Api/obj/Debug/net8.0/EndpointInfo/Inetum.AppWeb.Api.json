@@ -1,0 +1,1211 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Inetum.AppWeb.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/pokemon/{id}": {
+      "get": {
+        "tags": [
+          "Pokemon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Root"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Root"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Root"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Ability": {
+        "type": "object",
+        "properties": {
+          "ability": {
+            "$ref": "#/components/schemas/Ability"
+          },
+          "is_hidden": {
+            "type": "boolean"
+          },
+          "slot": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Animated": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BlackWhite": {
+        "type": "object",
+        "properties": {
+          "animated": {
+            "$ref": "#/components/schemas/Animated"
+          },
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cries": {
+        "type": "object",
+        "properties": {
+          "latest": {
+            "type": "string",
+            "nullable": true
+          },
+          "legacy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Crystal": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_transparent": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_transparent": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_transparent": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_transparent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiamondPearl": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DreamWorld": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Emerald": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FireredLeafgreen": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GameIndex": {
+        "type": "object",
+        "properties": {
+          "game_index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Generation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationI": {
+        "type": "object",
+        "properties": {
+          "red-blue": {
+            "$ref": "#/components/schemas/RedBlue"
+          },
+          "yellow": {
+            "$ref": "#/components/schemas/Yellow"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationIi": {
+        "type": "object",
+        "properties": {
+          "crystal": {
+            "$ref": "#/components/schemas/Crystal"
+          },
+          "gold": {
+            "$ref": "#/components/schemas/Gold"
+          },
+          "silver": {
+            "$ref": "#/components/schemas/Silver"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationIii": {
+        "type": "object",
+        "properties": {
+          "emerald": {
+            "$ref": "#/components/schemas/Emerald"
+          },
+          "firered-leafgreen": {
+            "$ref": "#/components/schemas/FireredLeafgreen"
+          },
+          "ruby-sapphire": {
+            "$ref": "#/components/schemas/RubySapphire"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationIv": {
+        "type": "object",
+        "properties": {
+          "diamond-pearl": {
+            "$ref": "#/components/schemas/DiamondPearl"
+          },
+          "heartgold-soulsilver": {
+            "$ref": "#/components/schemas/HeartgoldSoulsilver"
+          },
+          "platinum": {
+            "$ref": "#/components/schemas/Platinum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationV": {
+        "type": "object",
+        "properties": {
+          "black-white": {
+            "$ref": "#/components/schemas/BlackWhite"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationVi": {
+        "type": "object",
+        "properties": {
+          "omegaruby-alphasapphire": {
+            "$ref": "#/components/schemas/OmegarubyAlphasapphire"
+          },
+          "x-y": {
+            "$ref": "#/components/schemas/XY"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationVii": {
+        "type": "object",
+        "properties": {
+          "icons": {
+            "$ref": "#/components/schemas/Icons"
+          },
+          "ultra-sun-ultra-moon": {
+            "$ref": "#/components/schemas/UltraSunUltraMoon"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationViii": {
+        "type": "object",
+        "properties": {
+          "icons": {
+            "$ref": "#/components/schemas/Icons"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Gold": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_transparent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeartgoldSoulsilver": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeldItem": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "$ref": "#/components/schemas/Item"
+          },
+          "version_details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VersionDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Home": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Icons": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Move": {
+        "type": "object",
+        "properties": {
+          "move": {
+            "$ref": "#/components/schemas/Move"
+          },
+          "version_group_details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VersionGroupDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MoveLearnMethod": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OfficialArtwork": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OmegarubyAlphasapphire": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Other": {
+        "type": "object",
+        "properties": {
+          "dream_world": {
+            "$ref": "#/components/schemas/DreamWorld"
+          },
+          "home": {
+            "$ref": "#/components/schemas/Home"
+          },
+          "official-artwork": {
+            "$ref": "#/components/schemas/OfficialArtwork"
+          },
+          "showdown": {
+            "$ref": "#/components/schemas/Showdown"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PastAbility": {
+        "type": "object",
+        "properties": {
+          "abilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "generation": {
+            "$ref": "#/components/schemas/Generation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Platinum": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "RedBlue": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_gray": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_transparent": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_gray": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_transparent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Root": {
+        "type": "object",
+        "properties": {
+          "abilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "base_experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cries": {
+            "$ref": "#/components/schemas/Cries"
+          },
+          "forms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Form"
+            },
+            "nullable": true
+          },
+          "game_indices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GameIndex"
+            },
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "held_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeldItem"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_default": {
+            "type": "boolean"
+          },
+          "location_area_encounters": {
+            "type": "string",
+            "nullable": true
+          },
+          "moves": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Move"
+            },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "past_abilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PastAbility"
+            },
+            "nullable": true
+          },
+          "past_types": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          },
+          "species": {
+            "$ref": "#/components/schemas/Species"
+          },
+          "sprites": {
+            "$ref": "#/components/schemas/Sprites"
+          },
+          "stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stats"
+            },
+            "nullable": true
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Types"
+            },
+            "nullable": true
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RubySapphire": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Showdown": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Silver": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_transparent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Species": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sprites": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_female": {
+            "nullable": true
+          },
+          "back_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_shiny_female": {
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          },
+          "other": {
+            "$ref": "#/components/schemas/Other"
+          },
+          "versions": {
+            "$ref": "#/components/schemas/Versions"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Stat": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Stats": {
+        "type": "object",
+        "properties": {
+          "base_stat": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "effort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stat": {
+            "$ref": "#/components/schemas/Stat"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Type": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Types": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Type"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UltraSunUltraMoon": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Version": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionDetail": {
+        "type": "object",
+        "properties": {
+          "rarity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionGroup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionGroupDetail": {
+        "type": "object",
+        "properties": {
+          "level_learned_at": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "move_learn_method": {
+            "$ref": "#/components/schemas/MoveLearnMethod"
+          },
+          "order": {
+            "nullable": true
+          },
+          "version_group": {
+            "$ref": "#/components/schemas/VersionGroup"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Versions": {
+        "type": "object",
+        "properties": {
+          "generation-i": {
+            "$ref": "#/components/schemas/GenerationI"
+          },
+          "generation-ii": {
+            "$ref": "#/components/schemas/GenerationIi"
+          },
+          "generation-iii": {
+            "$ref": "#/components/schemas/GenerationIii"
+          },
+          "generation-iv": {
+            "$ref": "#/components/schemas/GenerationIv"
+          },
+          "generation-v": {
+            "$ref": "#/components/schemas/GenerationV"
+          },
+          "generation-vi": {
+            "$ref": "#/components/schemas/GenerationVi"
+          },
+          "generation-vii": {
+            "$ref": "#/components/schemas/GenerationVii"
+          },
+          "generation-viii": {
+            "$ref": "#/components/schemas/GenerationViii"
+          }
+        },
+        "additionalProperties": false
+      },
+      "XY": {
+        "type": "object",
+        "properties": {
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_female": {
+            "nullable": true
+          },
+          "front_shiny": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_shiny_female": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Yellow": {
+        "type": "object",
+        "properties": {
+          "back_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_gray": {
+            "type": "string",
+            "nullable": true
+          },
+          "back_transparent": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_default": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_gray": {
+            "type": "string",
+            "nullable": true
+          },
+          "front_transparent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "\\Inetum.AppWeb",
+    "\\Inetum.AppWeb\\src",
+    "\\Inetum.AppWeb\\src\\Inetum.AppWeb.Api",
+    "\\Inetum.AppWeb\\src\\Inetum.AppWeb.Api\\Controllers",
+    "\\Inetum.AppWeb\\src\\Inetum.AppWeb.BlazorApp",
+    "\\Inetum.AppWeb\\src\\Inetum.AppWeb.BlazorApp\\Properties"
+  ],
+  "PreviewInSolutionExplorer": false
+}

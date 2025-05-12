@@ -1,0 +1,6 @@
+@Inetum.AppWeb.Api_HostAddress = http://localhost:5111
+
+GET {{Inetum.AppWeb.Api_HostAddress}}/api/pokemon/
+Accept: application/json
+
+###

@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "src\\Inetum.AppWeb.Api\\Inetum.AppWeb.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\Inetum.AppWeb.BlazorApp\\Inetum.AppWeb.BlazorApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

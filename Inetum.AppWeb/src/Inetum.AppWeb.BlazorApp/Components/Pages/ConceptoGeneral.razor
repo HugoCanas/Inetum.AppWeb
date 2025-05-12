@@ -1,0 +1,167 @@
+﻿@page "/ConceptosGenerales"
+@using System.Text.Json
+@using Inetum.AppWeb.BlazorApp
+@using Inetum.AppWeb.BlazorApp.Components
+@using static Inetum.AppWeb.BlazorApp.PokeapiResponse
+
+@rendermode InteractiveServer
+@inject IHttpClientFactory HttpClientFactorys
+@inject NotificationService _notificationService
+
+
+<PageTitle>ConceptosGenerales</PageTitle>
+
+
+
+<RadzenStack Orientation="Orientation.Vertical" Gap="1rem">
+    <RadzenText TextStyle="TextStyle.H3">
+        Consulta de Pokemon
+    </RadzenText>
+    <div class="card panel-default">
+        <div class="card-header">
+            <RadzenText TextStyle="TextStyle.H5" class="rz-display-flex rz-mt-2 rz-my-0">Busqueda de Pokemon</RadzenText>
+        </div>
+        <div class="card-body">
+            <RadzenTemplateForm TItem="ModeloBusquedaPokemon" Data=@modeloBusqueda Submit=@IniciarBusquedaPokemonById>
+                <RadzenStack Orientation="Orientation.Vertical" Gap="1rem">
+                    <RadzenStack Orientation="Orientation.Horizontal" Gap="0.5rem">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" class="rz-display-flex rz-mt-2 rz-my-0">Id Pokemon:</RadzenText>
+                        <RadzenNumeric style="display: block" @bind-Value="@modeloBusqueda.IdPokemon" Name="IdPokemon" class="w-100" aria-label="Id Pokemon a Buscarr" />
+                        <RadzenRequiredValidator Component="IdPokemon" Text="El Id del Pokemon no puede estar vacío" Popup=true Style="position: absolute" />
+                    </RadzenStack>
+                    <RadzenButton ButtonType="ButtonType.Submit" Icon="search" Text="Buscar" Disabled="isLoading"></RadzenButton>
+                </RadzenStack>
+            </RadzenTemplateForm>
+        </div>
+    </div>
+
+    <div class="card panel-default">
+        <div class="card-body">
+            @if (isLoading)
+            {
+                <RadzenStack Orientation="Orientation.Vertical" Gap="1rem" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center">
+                    <RadzenProgressBarCircular ShowValue="false" Mode="ProgressBarMode.Indeterminate" Size="ProgressBarCircularSize.Large" />
+                </RadzenStack>
+            }
+            else
+            {
+                @if (pokemon != null)
+                {
+                    <RadzenTemplateForm TItem="Root" Data="@pokemon">
+
+                        <RadzenStack Orientation="Orientation.Vertical" Gap="1rem">
+
+                            <RadzenStack Orientation="Orientation.Horizontal" Gap="0.5rem">
+                                <RadzenImage Path="@pokemon?.Sprites?.FrontDefault" />
+                                <RadzenStack Orientation="Orientation.Horizontal" Gap="0.5rem">
+                                    <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                                        Nombre Pokemon:
+                                        <RadzenTextBox style="display: block; width: 30rem !important" Value=@pokemon?.Name Name="Name" ReadOnly="true" class="w-100" />
+                                    </RadzenStack>
+                                    <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                                        Tipos Pokemon:
+                                       
+                                            <ul>
+                                                @foreach (var tipo in pokemon.Types)
+                                                {
+                                                    <li>@tipo.Type.Name</li>
+                                                }
+                                            </ul>
+                                    </RadzenStack>
+                                </RadzenStack>
+
+                            </RadzenStack>
+
+                               <RadzenDataGrid Data="@pokemon.Stats"  AllowPaging="false">
+                        <Columns>
+                            <RadzenDataGridColumn Property="Stat.Name" Title="Estadistica" />
+                                    <RadzenDataGridColumn Property="BaseStat" Title="Valor" />
+                        </Columns>
+                    </RadzenDataGrid>
+                        </RadzenStack>
+
+                    </RadzenTemplateForm>
+                }
+            }
+
+
+
+        </div>
+    </div>
+</RadzenStack>
+
+
+@code {
+    bool isLoading = false;
+    private ModeloBusquedaPokemon modeloBusqueda = new();
+    private Root pokemon = null;
+
+    protected async Task IniciarBusquedaPokemonById()
+    {
+        pokemon = null;
+        isLoading = true;
+
+        if (modeloBusqueda.IdPokemon==0)
+        {
+            CreateNotification(NotificationSeverity.Error, "Error", "El campo de texto está vacío.");
+            return;
+        }
+
+        try
+        {
+            using var client = HttpClientFactorys.CreateClient("InetumApi");
+            var response = await client.GetAsync($"pokemon/{modeloBusqueda.IdPokemon}");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                CreateNotification(NotificationSeverity.Error, "Error", "No se ha encontrado el pokemon");
+                return;
+            }
+           
+            if (!response.IsSuccessStatusCode)
+            {
+                CreateNotification(NotificationSeverity.Error, "Error", $"Error al buscar el Pokémon: {response.ReasonPhrase}");
+                return;
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            var root = JsonSerializer.Deserialize<Root>(content, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+            if (root == null)
+            {
+                CreateNotification(NotificationSeverity.Error, "Error", "Error al deserializar los datos del Pokémon.");
+                return;
+            }
+
+            pokemon = root;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al buscar el Pokémon: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+        
+    }
+
+    protected void CreateNotification(NotificationSeverity severity, string title, string description, double duration = 10000) => _notificationService.Notify(new NotificationMessage
+        {
+            Severity = severity,
+            Summary = title,
+            Detail = description,
+            Duration = duration,
+            CloseOnClick = true
+        });
+
+    private class ModeloBusquedaPokemon
+    {
+        public int IdPokemon { get; set; }
+    }
+
+}
+

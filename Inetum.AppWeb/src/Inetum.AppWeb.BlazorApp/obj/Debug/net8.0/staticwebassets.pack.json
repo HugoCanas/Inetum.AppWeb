@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\hugo.canas.ext\\Desktop\\Inetum.AppWeb\\Inetum.AppWeb\\src\\Inetum.AppWeb.BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Inetum.AppWeb.BlazorApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Inetum.AppWeb.BlazorApp.bh5prwxfr5.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\hugo.canas.ext\\Desktop\\Inetum.AppWeb\\Inetum.AppWeb\\src\\Inetum.AppWeb.BlazorApp\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Inetum.AppWeb.BlazorApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Inetum.AppWeb.BlazorApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Inetum.AppWeb.BlazorApp.props",
+      "PackagePath": "build\\Inetum.AppWeb.BlazorApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Inetum.AppWeb.BlazorApp.props",
+      "PackagePath": "buildMultiTargeting\\Inetum.AppWeb.BlazorApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Inetum.AppWeb.BlazorApp.props",
+      "PackagePath": "buildTransitive\\Inetum.AppWeb.BlazorApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

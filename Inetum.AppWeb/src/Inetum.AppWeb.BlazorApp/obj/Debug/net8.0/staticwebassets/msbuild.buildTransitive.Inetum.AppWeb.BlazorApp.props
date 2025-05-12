@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Inetum.AppWeb.BlazorApp.props" />
+</Project>

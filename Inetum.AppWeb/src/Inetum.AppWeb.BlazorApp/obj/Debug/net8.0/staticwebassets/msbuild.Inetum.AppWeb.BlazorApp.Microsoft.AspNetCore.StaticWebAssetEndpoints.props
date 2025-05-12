@@ -1,0 +1,28 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Inetum.AppWeb.BlazorApp/app.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eFhqFnpV0MnUzO9Kpky5bhNDtcahyJB0EUH9gOkJL/Y="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1144"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022eFhqFnpV0MnUzO9Kpky5bhNDtcahyJB0EUH9gOkJL/Y=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 11:15:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Inetum.AppWeb.BlazorApp/app.sjo54y9jro.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sjo54y9jro"},{"Name":"integrity","Value":"sha256-eFhqFnpV0MnUzO9Kpky5bhNDtcahyJB0EUH9gOkJL/Y="},{"Name":"label","Value":"_content/Inetum.AppWeb.BlazorApp/app.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1144"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022eFhqFnpV0MnUzO9Kpky5bhNDtcahyJB0EUH9gOkJL/Y=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 11:15:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Inetum.AppWeb.BlazorApp/Inetum.AppWeb.BlazorApp.bh5prwxfr5.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Inetum.AppWeb.BlazorApp.bh5prwxfr5.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bh5prwxfr5"},{"Name":"integrity","Value":"sha256-Ac3v9XXvJji2OhtF\u002BXQ3kZJbv37AbuigzOYqFMyd8ks="},{"Name":"label","Value":"_content/Inetum.AppWeb.BlazorApp/Inetum.AppWeb.BlazorApp.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7317"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ac3v9XXvJji2OhtF\u002BXQ3kZJbv37AbuigzOYqFMyd8ks=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 11:26:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Inetum.AppWeb.BlazorApp/Inetum.AppWeb.BlazorApp.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Inetum.AppWeb.BlazorApp.bh5prwxfr5.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Ac3v9XXvJji2OhtF\u002BXQ3kZJbv37AbuigzOYqFMyd8ks="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7317"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ac3v9XXvJji2OhtF\u002BXQ3kZJbv37AbuigzOYqFMyd8ks=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 11:26:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

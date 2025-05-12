@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "y3vHZXXAWNbOcWz178gTIFwi1KAcThFqm8SMZF+5ZDk=",
+  "Source": "Inetum.AppWeb.Api",
+  "BasePath": "_content/Inetum.AppWeb.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

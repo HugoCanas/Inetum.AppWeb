@@ -1,0 +1,67 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #343a40;
+    padding: 1rem;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    header a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+    }
+
+        header a:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container {
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+}
+
+    .card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card p {
+        margin-bottom: 0.5rem;
+    }
+
+.footer {
+    background-color: #343a40;
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 2rem;
+}

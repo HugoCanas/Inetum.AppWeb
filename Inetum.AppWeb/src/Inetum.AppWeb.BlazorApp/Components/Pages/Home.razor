@@ -1,0 +1,29 @@
+﻿@page "/"
+
+@inject IHttpClientFactory _clientFactory
+
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        using var client = _clientFactory.CreateClient("InetumApi");
+
+        var response = await client.GetAsync("pokemon/1");
+
+        if(response == null || !response.IsSuccessStatusCode)
+        {
+            throw new Exception();
+        } //hay que cambiarlo, peta
+
+
+    }
+}
